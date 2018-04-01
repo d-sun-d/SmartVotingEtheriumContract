@@ -7,11 +7,9 @@ class Constructor(ConstructorInstance):
         json_schema = {
             "type": "object",
             "additionalProperties": False,
-       }
-       
+        }
        ui_schema = {}
-
-        return {
+       return {
             "result": "success",
             "schema": json_schema,
             "ui_schema": ui_schema
@@ -48,7 +46,7 @@ class Constructor(ConstructorInstance):
         }    
 
 
-# language=Solidity
+    # language=Solidity
     _TEMPLATE = """
 pragma solidity ^0.4.0;
 contract SmartVote {
