@@ -12,7 +12,7 @@ contract SmartVotes {
         mapping(address => bool) votes;
         mapping(address => bool) ifVotes;
     }
-    Question[] questions;
+    Question[] public questions;
     
     function addQuestion(string info) public returns (uint _questionNumber){
         _questionNumber = questions.length;
@@ -39,7 +39,7 @@ contract SmartVotes {
     function closeVote(uint questionNumber) public returns (bool _result) {
         bool isClosed = questions[questionNumber].isClosed;
         if (!isClosed){
-            uint winningVoteCount = 0;
+            int winningVoteCount = 0;
             for (uint prop = 0; prop < questions[questionNumber].voters.length; prop++)
                 address nextVoter = questions[questionNumber].voters[prop];
                 if (questions[questionNumber].votes[nextVoter]){
@@ -62,4 +62,3 @@ contract SmartVotes {
         _result = questions[questionNumber].voteResult;
     }
     
-}
